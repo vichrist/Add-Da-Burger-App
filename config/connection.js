@@ -3,8 +3,8 @@ const { connect } = require('http2');
 // import mysql module 
 const mysql = require('mysql'); 
 
-// setup the connection 
 
+// setup the connection 
 const connection = mysql.createConnection({
     host: 'localhost', 
     port: 3306,
@@ -13,8 +13,8 @@ const connection = mysql.createConnection({
     database: 'burgers_db'
 }); 
 
-// connecting the connection 
 
+// executing the connection 
 connection.connect((err) => {
     if (err) {
     console.error("Error Connecting: " + err.stack); 
@@ -24,5 +24,5 @@ connection.connect((err) => {
 }); 
 
 
-// exporting the connection 
+// exporting the connection file 
 module.exports = connection; 
