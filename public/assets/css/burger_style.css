@@ -12,14 +12,28 @@ body{
 h1 {
     color: whitesmoke; 
     text-align: center;
-    font-size: 50px;
-    
+    font-size: 50px;  
 }
 
 h2 {
     color: whitesmoke;
+    font-size: 35px;
 }
 
 ul{
     color: whitesmoke; 
+    font-size: 20px;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) 
+{
+    h1,h2 {
+        width: 75%;
+    }
+    .container {
+        width: 100%;
+    }
+    .wrapper {
+        width: 100%;
+    }
 }

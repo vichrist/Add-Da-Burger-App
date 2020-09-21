@@ -1,58 +1,63 @@
+<div class="wrapper"> 
 
-<h1>Eat-Da-Burger</h1>
+  <h1>Eat-Da-Burger</h1>
 
-<h2>Burger Options</h2>
+  <h2>Burger Options</h2>
 
 <!-- loop that will list the burger names to the options list --> 
-<ul>
-    {{#each burgers}}
-        {{#unless devoured}}
-       
-            <li> 
-                {{burger_name}}
-          
-                <form action="/{{id}}?_method=PUT" method="POST">
-                    <input type="hidden" name="devoured" value="true">
-                    <button class="btn" type="submit">Click here to devour!</button>
-                </form>   
-            </li> 
-           {{/unless}}
-    {{/each}}
-</ul>
+<div class="container">
+  <ul>
+      {{#each burgers}}
+          {{#unless devoured}}
+        
+              <li> 
+                  {{burger_name}}
+            
+                  <form action="/{{id}}?_method=PUT" method="POST">
+                      <input type="hidden" name="devoured" value="true">
+                      <button class="btn" type="submit">Click here to devour!</button>
+                  </form>   
+              </li> 
+            {{/unless}}
+      {{/each}}
+  </ul>
+</div>
 
-<h2>You have selected to devour this/these burger(s)</h2>
+  <h2>You have selected to devour this/these burger(s)</h2>
 
 <!-- loop that will list the burger names to the devour list --> 
+<div class="container"> 
+  <ul>
+      {{#each burgers}}
+          {{#if devoured}}
+              <li>               
+                  {{burger_name}}
 
-<ul>
-    {{#each burgers}}
-        {{#if devoured}}
-            <li>               
-                {{burger_name}}
+                  <form action="/{{id}}?_method=PUT" method="POST">
+                      <input type="hidden" name="devoured" value="false">
+                      <button class="btn" type="submit">Remove from devour list!</button>
+                  </form>        
+              </li>
+          {{/if}}
+      {{/each}}
+  </ul>
+</div>
 
-                <form action="/{{id}}?_method=PUT" method="POST">
-                    <input type="hidden" name="devoured" value="false">
-                    <button class="btn" type="submit">Remove from devour list!</button>
-                </form>        
-            </li>
-        {{/if}}
-    {{/each}}
-</ul>
-
-
-<h2>Add to Burger Options</h2>
+  <h2>Add to Burger Options</h2>
 
 <!-- form that will add a new burger to the options list --> 
+  <div class="container"> 
+      <form action = '/' method="POST">
 
-  <form action = '/' method="POST">
+          <label for="burger"></label>
 
-      <label for="burger"></label>
+          <input type="text" id="burger" name="burger_name" placeholder="Burger Name">
 
-      <input type="text" id="burger" name="burger_name" placeholder="Burger Name">
+          <button type="submit" class="btn">Add Burger</button>
 
-      <button type="submit" class="btn">Add Burger</button>
-
-  </form>
+      </form>
+  </div>
+</div>
 
 
 
