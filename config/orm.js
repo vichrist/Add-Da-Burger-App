@@ -1,7 +1,10 @@
 const { table } = require('console');
+
 // importing connection.js into the orm.js file 
 const connection = require('../config/connection'); 
 
+
+// these functions are helper functions 
 function printQuestionMarks(num) {
     var arr = [];
   
@@ -12,8 +15,7 @@ function printQuestionMarks(num) {
     return arr.toString();
   }
   
-  // Helper function to convert object key/value pairs to SQL syntax
-  function columns(ob) {
+function objToSql(ob) {
     var arr = [];
   
     // loop through the keys and push the key/value as a string int arr
@@ -21,19 +23,18 @@ function printQuestionMarks(num) {
       var value = ob[key];
       // check to skip hidden properties
       if (Object.hasOwnProperty.call(ob, key)) {
-        // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
+        // if string with spaces, add quotations 
         if (typeof value === "string" && value.indexOf(" ") >= 0) {
           value = "'" + value + "'";
         }
-        // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-        // e.g. {sleepy: true} => ["sleepy=true"]
+      
         arr.push(key + "=" + value);
       }
     }
   
     // translate array of strings to a single comma-separated string
     return arr.toString();
-  }
+}
 
 
 // methods that will execute the MySQL commands in the controllers 
@@ -82,9 +83,9 @@ const orm = {
         var queryString = "UPDATE " + tableName;
 
         queryString += " SET ";
-        queryString += columns(columns);
+        queryString += objToSql(columns);
         queryString += " WHERE ";
-        queryString += condition;
+        queryString += values;
 
         connection.query(queryString, (err, result) => {
             if (err) {
@@ -92,7 +93,7 @@ const orm = {
             } 
             cb(result); 
         });
-    }
+    },
 };
 // exporting the orm.js file 
 module.exports = orm; 

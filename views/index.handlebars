@@ -1,54 +1,61 @@
-{{!-- <img src="/public/assets/img/burgerimage.png" alt="Eat-Da-Burger"> --}}
 
 <h1>Eat-Da-Burger</h1>
 
-<h1>Burger Options</h1>
+<h2>Burger Options</h2>
 
+<!-- loop that will list the burger names to the options list --> 
 <ul>
     {{#each burgers}}
         {{#unless devoured}}
        
             <li> 
                 {{burger_name}}
-
-                <form action="/" {{burger_name}}?_method="PUT" method="POST">
+          
+                <form action="/{{id}}?_method=PUT" method="POST">
                     <input type="hidden" name="devoured" value="true">
                     <button class="btn" type="submit">Click here to devour!</button>
-                </form>                  
+                </form>   
             </li> 
            {{/unless}}
     {{/each}}
 </ul>
 
-<h1>You have selected to devour this/these burger(s)</h1>
+<h2>You have selected to devour this/these burger(s)</h2>
+
+<!-- loop that will list the burger names to the devour list --> 
 
 <ul>
     {{#each burgers}}
         {{#if devoured}}
             <li>               
                 {{burger_name}}
+
+                <form action="/{{id}}?_method=PUT" method="POST">
+                    <input type="hidden" name="devoured" value="false">
+                    <button class="btn" type="submit">Remove from devour list!</button>
+                </form>        
             </li>
         {{/if}}
     {{/each}}
 </ul>
 
-<h1>Add a Burger of Your Choice</h1>
 
-<form class="create-form">
+<h2>Add to Burger Options</h2>
 
-  <div class="form-group">
-    <label for="options">Burger Name</label>
-    <input type="text" id="options" name="burger_name">
-  </div>
-    <br>
-  <div class="form-group">
-    <label for="devour">Add Burger:</label><br><br>
-    <input type="radio" name="devoured" value="1" checked>Devour List<br>
-    <input type="radio" name="devoured" value="0">Burger Options
-  </div>
-    <br>
-  <button type="submit">Click to Submit</button>
-</form>
+<!-- form that will add a new burger to the options list --> 
+
+  <form action = '/' method="POST">
+
+      <label for="burger"></label>
+
+      <input type="text" id="burger" name="burger_name" placeholder="Burger Name">
+
+      <button type="submit" class="btn">Add Burger</button>
+
+  </form>
+
+
+
 
 
 

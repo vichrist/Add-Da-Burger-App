@@ -2,6 +2,24 @@ ul {
     list-style: none;
 }
 
-img {
-    background-image: center;
+body{
+    background-image: url("/assets/img/burgerimage.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+h1 {
+    color: whitesmoke; 
+    text-align: center;
+    font-size: 50px;
+    
+}
+
+h2 {
+    color: whitesmoke;
+}
+
+ul{
+    color: whitesmoke; 
 }

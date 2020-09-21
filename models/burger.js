@@ -19,7 +19,7 @@ const burger = {
         orm.updateOne('burgers', columns, values, (result) =>{
             cb(result); 
         });
-    }
+    }, 
 };
 
 // exporting the burger.js file 

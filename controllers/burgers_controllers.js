@@ -18,17 +18,19 @@ router.get('/', (req, res) => {
     });
 });
 
-// create the second POST route that calls the orm function insertOne which allows us to add new values to the burger object keys listed below. 
+// create the second POST route that calls the orm function insertOne which allows us to add burger options  
 
-router.post('/api/insert', (req, res)=>{
+router.post('/', (req, res)=>{
+
     burger.insertOne(['burger_name', 'devoured'], [req.body.burger_name, req.body.devoured], () => {
+
         res.redirect('/')
     });
 });
 
-// create the third PUT route that calls the orm function updateOne which allows us to enter BOOLEAN value updates to the burger object key listed below. 
+// create the third PUT route that calls the orm function updateOne which allows us to update burger options
 
-router.put('/api/insert/:id', (req, res) => {
+router.put('/:id', (req, res) => {
 
     let condition = 'id = ' + req.params.id; 
 
@@ -44,7 +46,6 @@ router.put('/api/insert/:id', (req, res) => {
         res.redirect('/')
     });
 });
-
 
 // exporting the router 
 module.exports = router; 
