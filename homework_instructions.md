@@ -1,5 +1,8 @@
 # Title: Express Handlebars Eat-Da-Burger App
 
+![image](https://user-images.githubusercontent.com/64853756/93830031-4daa7a00-fc2c-11ea-9007-1005a7055826.png)
+
+
 ### Description
 
    This application follows an MVC design pattern. See directory structure below. 
