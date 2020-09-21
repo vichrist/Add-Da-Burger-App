@@ -1,5 +1,7 @@
     ## Title: Handlebars: Eat-Da-Burger App
   
+    ![image](https://user-images.githubusercontent.com/64853756/93830031-4daa7a00-fc2c-11ea-9007-1005a7055826.png)
+    
     ## Description
     
         This applications follows an MVC design pattern. "Eat-Da-Burger" is a restaurant application that has a default list of burger options to choose from. The user is allowed to submit a different burger name which will then append to the burger options list. If the user chooses to eat this burger then user can select the burger to be added to the devour list. If at any point the user changes their mind, they can remove the burger from the devour list, it will then be appended back to the options list. 
