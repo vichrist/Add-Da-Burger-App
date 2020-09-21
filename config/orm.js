@@ -48,9 +48,9 @@ const orm = {
                 console.error('ERROR', err.stack);
             } else { 
                 console.log("selectAll", result);
-            }     
-        });
+            }    
             cb(result); 
+        });
     },
     
 
@@ -73,8 +73,8 @@ const orm = {
             } else { 
                 console.log("insertOne", result);
             };
-        });
             cb(result); 
+        }); 
     },
 
     // updateOne() method 

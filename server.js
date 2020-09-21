@@ -13,7 +13,7 @@ var app = express();
 
 // set up middleware to handle data parsing 
 app.use(express.urlencoded({extended: true})); 
-app.use(express.json); 
+app.use(express.json()); 
 
 // set up handlebars and default template engine 
 app.engine('handlebars', exphbs({defaultLayout: "main"}));
