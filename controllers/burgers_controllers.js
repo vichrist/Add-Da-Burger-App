@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 
 router.post('/api/insert', (req, res)=>{
     burger.insertOne(['burger_name', 'devoured'], [req.body.burger_name, req.body.devoured], () => {
-        res.json({ id: res.insertId });
+        res.redirect('/')
     });
 });
 
@@ -40,22 +40,10 @@ router.put('/api/insert/:id', (req, res) => {
 
     }, 
     condition, () => {
-        if (res.changedRows === 0) {
-            return res.status(404).end();
-        }
-        res.status(200).end();
+       
+        res.redirect('/')
     });
 });
-
-// create the fourth DELETE route that allows user to delete 
-
-// router.delete('/:id', (req, res) => {
-//     let updates = 'id =' + req.params.id; 
-    
-//     burger.delete(updates, () =>{
-//         res.redirect('/');
-//     });
-// });
 
 
 // exporting the router 

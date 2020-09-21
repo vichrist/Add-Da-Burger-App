@@ -15,9 +15,11 @@ var app = express();
 app.use(express.urlencoded({extended: true})); 
 app.use(express.json()); 
 
+
 // set up handlebars and default template engine 
 app.engine('handlebars', exphbs({defaultLayout: "main"}));
 app.set('view engine', 'handlebars');
+
 
 // permit access to the route files 
 var routes = require ('./controllers/burgers_controllers');

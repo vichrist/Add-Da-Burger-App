@@ -1,3 +1,5 @@
+{{!-- <img src="/public/assets/img/burgerimage.png" alt="Eat-Da-Burger"> --}}
+
 <h1>Eat-Da-Burger</h1>
 
 <h1>Burger Options</h1>
@@ -5,39 +7,48 @@
 <ul>
     {{#each burgers}}
         {{#unless devoured}}
+       
             <li> 
-                {{id}}
                 {{burger_name}}
 
-                <form action="/" {{id}}?_method="PUT" method="POST">
+                <form action="/" {{burger_name}}?_method="PUT" method="POST">
                     <input type="hidden" name="devoured" value="true">
-                    <button class="btn" type="submit">Devoured!</button>
-                </form>
-            </li>
-        {{/unless}}
+                    <button class="btn" type="submit">Click here to devour!</button>
+                </form>                  
+            </li> 
+           {{/unless}}
     {{/each}}
 </ul>
 
-<h1>Devoured Burgers</h1>
+<h1>You have selected to devour this/these burger(s)</h1>
 
 <ul>
     {{#each burgers}}
         {{#if devoured}}
-            <li>
-                {{id}}
+            <li>               
                 {{burger_name}}
-            </li>>
+            </li>
         {{/if}}
     {{/each}}
 </ul>
 
-<h2>Add Burger of Your Choice</h2>
+<h1>Add a Burger of Your Choice</h1>
 
-<form class="create" action="/api/insert" method="POST">
-    <div class="form">
-        <label for="add">Burger Name</label>
-        <input type="text" id="add" name="burger_name">
-    </div>
+<form class="create-form">
 
-    <button class="btn" type="submit">Add Burger</button>
+  <div class="form-group">
+    <label for="options">Burger Name</label>
+    <input type="text" id="options" name="burger_name">
+  </div>
+    <br>
+  <div class="form-group">
+    <label for="devour">Add Burger:</label><br><br>
+    <input type="radio" name="devoured" value="1" checked>Devour List<br>
+    <input type="radio" name="devoured" value="0">Burger Options
+  </div>
+    <br>
+  <button type="submit">Click to Submit</button>
 </form>
+
+
+
